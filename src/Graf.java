@@ -21,20 +21,21 @@ public class Graf {
     }
 
     public void souvislost(){
-        int i=0;
-        for (Hrana hrana : hrany){
-            if (hrana.getA().getNazev().equals(souvislosti.get(i).getNazev())){
-                boolean nalezeno = true;
-                for (Vrchol s : souvislosti){
-                    if (s.getNazev().equals(hrana.getB().getNazev())){
-                       nalezeno = true;
-                    }else{
-                        nalezeno = false;
+        int i = 0;
+        while (souvislosti.get(i) != null){
+            for (Hrana hrana : hrany){
+                if (hrana.getA().getNazev().equals(souvislosti.get(i).getNazev())){
+                    boolean nalezeno = false;
+                    for (Vrchol s : souvislosti){
+                        if (s.getNazev().equals(hrana.getB().getNazev())){
+                            nalezeno = true;
+                        }
+                    }if (!nalezeno){
+                        souvislosti.add(hrana.getB());
                     }
-                }if (nalezeno){
-                    souvislosti.add(hrana.getB());
                 }
             }
+            i++;
         }
     }
 }

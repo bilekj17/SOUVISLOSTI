@@ -34,9 +34,7 @@ public class Graf {
                 }if (nalezeno){
                     souvislosti.add(hrana.getB());
                 }
-
             }
-            if ()
         }
     }
 }
